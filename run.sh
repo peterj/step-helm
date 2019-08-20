@@ -5,10 +5,6 @@ helm="$WERCKER_STEP_ROOT/helm"
 main() {
     display_version
 
-    if [ -z "$WERCKER_HELM_COMMAND" ]; then
-        fail "helm: command argument cannot be empty"
-    fi
-
     if [ -z "$WERCKER_HELM_TOKEN" ]; then
         fail "helm: token argument cannot be empty"
     fi
