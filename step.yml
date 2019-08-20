@@ -1,6 +1,6 @@
 name: helm
-version: 2.14.3
-summary: Step to run Helm
+version: 0.1.0
+summary: Step to run Helm (v2.14.3)
 tags:
   - kubernetes
   - helm
