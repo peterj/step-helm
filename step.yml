@@ -1,0 +1,13 @@
+name: helm
+version: 2.14.3
+summary: Step to run Helm
+tags:
+  - kubernetes
+  - helm
+properties:
+  - name: token
+    type: string
+    required: true
+  - name: server
+    type: string
+    required: true

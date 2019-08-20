@@ -1,0 +1,29 @@
+box: debian:stable-slim
+build:
+  steps:
+    - shellcheck
+
+    - install-packages:
+        packages: curl
+
+    - script:
+        name: Setup
+        code:
+          export HELM_VERSION="2.14.3"
+          export HELM_SHA256="38614a665859c0f01c9c1d84fa9a5027364f936814d1e47839b05327e400bf55"
+          echo "Installing Helm $HELM_VERSION"
+    - script:
+        name: Download Helm
+        code: |
+          curl -L https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz > helm.tar.gz
+          echo "$HELM_SHA256 helm.tar.gz" | sha256sum --check
+          tar xvzf helm.tar.gz
+          linux-amd64/helm version --client
+    - script:
+        name: Prepare step output
+        code: cp "linux-amd64/helm" "README.md" "LICENSE" "run.sh" "wercker.yml" "step.yml" "$WERCKER_OUTPUT_DIR"
+
+publish:
+    steps:
+      - internal/publish-step:
+          owner: pjausovec
