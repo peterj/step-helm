@@ -1,5 +1,5 @@
 name: helm
-version: 0.1.0
+version: 0.1.1
 summary: Step to run Helm (v2.14.3)
 tags:
   - kubernetes
@@ -13,4 +13,4 @@ properties:
     required: true
   - name: command
     type: string
-    required: false
+    required: true
