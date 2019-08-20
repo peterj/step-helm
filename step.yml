@@ -11,3 +11,6 @@ properties:
   - name: server
     type: string
     required: true
+  - name: command
+    type: string
+    required: false
